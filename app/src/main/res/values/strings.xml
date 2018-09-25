@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Router</string>
+
+    <!--Router_login.xml strings-->
+    <string name="router_login_usn_hint">Username</string>
+    <string name="router_login_pwd_hint">Password</string>
+    <string name="router_login_btn_login_text">Log In</string>
+
+</resources>
