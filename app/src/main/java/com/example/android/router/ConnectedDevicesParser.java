@@ -53,16 +53,16 @@ public class ConnectedDevicesParser extends AppCompatActivity {
 
         dbHandler = new MyDBHandler(this,null,null,1);
 
-        dbView = findViewById(R.id.dbView);
-
-        loadBtn = findViewById(R.id.load);
-
-        loadBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                dbView.setText(dbHandler.loadHandler());
-            }
-        });
+//        dbView = findViewById(R.id.dbView);
+//
+//        loadBtn = findViewById(R.id.load);
+//
+//        loadBtn.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view) {
+//                dbView.setText(dbHandler.loadHandler());
+//            }
+//        });
 
         parseIt();
     }

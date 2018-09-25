@@ -37,38 +37,27 @@ public class MyDBHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db,int i,int i1) { }
 
-//    public List<Devices> loadHandler() {
-//        List<Devices> devicesList= new ArrayList<>();
-//        Devices device;
+    /**
+     *
+     *  Use loadHandler to display all the data from the db.
+     */
+
+//    public String loadHandler() {
+//        String result = "";
 //        String query = "SELECT * FROM " + TABLE_NAME;
 //        SQLiteDatabase db = this.getReadableDatabase();
 //        Cursor cursor = db.rawQuery(query,null);
 //        while (cursor.moveToNext()) {
-//            device = new Devices(cursor.getString(0),cursor.getString(1),cursor.getString(2),
-//                    cursor.getString(3),cursor.getInt(4));
-//            devicesList.add(device);
+//            String result_0 = cursor.getString(0);
+//            String result_1 = cursor.getString(1);
+//            String result_2 = cursor.getString(2);
+//            String result_3 = cursor.getString(3);
+//            result += String.valueOf(result_0 +" "+result_1+" " + result_2 + " " + result_3 + "\n\n");
 //        }
 //        cursor.close();
 //        db.close();
-//        return devicesList;
+//        return result;
 //    }
-
-    public String loadHandler() {
-        String result = "";
-        String query = "SELECT * FROM " + TABLE_NAME;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query,null);
-        while (cursor.moveToNext()) {
-            String result_0 = cursor.getString(0);
-            String result_1 = cursor.getString(1);
-            String result_2 = cursor.getString(2);
-            String result_3 = cursor.getString(3);
-            result += String.valueOf(result_0 +" "+result_1+" " + result_2 + " " + result_3 + "\n\n");
-        }
-        cursor.close();
-        db.close();
-        return result;
-    }
 
     public void addHandler(Devices device) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -122,33 +111,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.update(TABLE_NAME,args,COLUMN_MAC_ADD + " = '" + device.getmACAdd()+"'",null);
         db.close();
     }
-
-//    public List<String> loadHandler() {
-//        List<String> result = new ArrayList<>();
-//        String query = "SELECT * FROM " + TABLE_NAME;
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(query,null);
-//        while (cursor.moveToNext()) {
-//            result.add(cursor.getString(0));
-//            result.add(cursor.getString(1));
-//            result.add(cursor.getString(2));
-//            result.add(cursor.getString(3));
-//        }
-//        cursor.close();
-//        db.close();
-//        return result;
-//    }
-
-//    public void addHandler(Devices device) {
-//        ContentValues values = new ContentValues();
-//        values.put(COLUMN_DEVICE_NAME,device.getDeviceName());
-//        values.put(COLUMN_IP_ADD,device.getiPAdd());
-//        values.put(COLUMN_MAC_ADD,device.getmACAdd());
-//        values.put(COLUMN_LAN,device.getLan());
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        db.insert(TABLE_NAME,null,values);
-//        db.close();
-//    }
 
 //    public void deleteAllHelper() {
 //        SQLiteDatabase db = this.getWritableDatabase();

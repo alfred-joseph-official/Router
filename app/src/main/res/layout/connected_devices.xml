@@ -29,25 +29,25 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ACDP_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="25dp">
 
     </android.support.v7.widget.RecyclerView>
 
     <!--just to test db. When deleting this change recycler view layoutheight to match_parent-->
-    <TextView
-        android:id="@+id/dbView"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="5dp"/>
+    <!--<TextView-->
+        <!--android:id="@+id/dbView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:layout_margin="5dp"/>-->
 
-    <Button
-        android:id="@+id/load"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="load"
-        android:layout_margin="5dp"
-        android:layout_gravity="center_horizontal"/>
+    <!--<Button-->
+        <!--android:id="@+id/load"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="load"-->
+        <!--android:layout_margin="5dp"-->
+        <!--android:layout_gravity="center_horizontal"/>-->
 
 
 </LinearLayout>
