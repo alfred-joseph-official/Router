@@ -1,5 +1,6 @@
 package com.example.android.router;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -23,11 +25,12 @@ public class ConnectedDevicesParser extends AppCompatActivity {
 
     int lan,img;
     List<Devices> deviceList;
+    ProgressBar progressBar;
     RecyclerView recyclerView;
     ConnectedDevicesParserAdapter adapter;
     MyDBHandler dbHandler;
-    TextView dbView;
-    Button loadBtn;
+//    TextView dbView;
+//    Button loadBtn;
 
 //    Toolbar toolbar;
 
@@ -35,6 +38,7 @@ public class ConnectedDevicesParser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connected_devices);
+        progressBar = findViewById(R.id.ACDP_progress_bar);
 
 //        To Create Custom Toolbar
 
@@ -73,6 +77,11 @@ public class ConnectedDevicesParser extends AppCompatActivity {
     }
 
     private class ParseURL extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected void onPreExecute() {
+            progressBar.setVisibility(View.VISIBLE);
+        }
 
         @Override
         protected String doInBackground(String... strings) {
@@ -124,6 +133,7 @@ public class ConnectedDevicesParser extends AppCompatActivity {
             super.onPostExecute(s);
             adapter.setDevicesList(deviceList);
             recyclerView.setAdapter(adapter);
+            progressBar.setVisibility(View.GONE);
         }
     }
 }
