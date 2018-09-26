@@ -36,7 +36,7 @@
                 android:id="@+id/router_login_usn_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="44dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -99,6 +99,7 @@
                    compile 'com.android.support:design:26.1.0' -->
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/router_login_pwd_text_input_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -124,13 +125,30 @@
 
             </LinearLayout>
 
+            <CheckBox
+                android:id="@+id/router_login_save_credentials_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="0.85"
+                android:scaleY="0.85"
+                android:text="Remember me"
+                android:checked="true"
+                app:layout_constraintTop_toBottomOf="@id/router_login_pwd_ll"
+                app:layout_constraintEnd_toEndOf="@id/router_login_pwd_ll"
+                android:textColor="@color/colorAccent"
+                android:buttonTint="@color/colorAccent"
+                android:gravity="center"
+                android:layout_marginRight="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="12sp" />
+
             <Button
                 android:id="@+id/router_login_btn_login"
                 android:layout_width="238dp"
                 android:layout_height="57dp"
                 app:layout_constraintTop_toBottomOf="@id/router_login_pwd_ll"
-                android:layout_marginTop="70dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginTop="110dp"
+                android:layout_marginBottom="20dp"
                 android:background="#fff"
                 android:text="@string/router_login_btn_login_text"
                 android:textAllCaps="false"

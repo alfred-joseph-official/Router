@@ -11,6 +11,8 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="actionBarSize">0dp</item>
+        <!--actionBarSize is not necessary. Sometimes action bar takes space even after hiding it.-->
         <!--<item name="android:windowFullscreen">true</item>-->
     </style>
 
