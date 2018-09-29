@@ -23,6 +23,7 @@ import java.util.List;
 
 public class ConnectedDevicesParser extends AppCompatActivity {
 
+    private static final String siteUrl = "http://192.168.0.1/dhcptbl.htm";
     int lan,img;
     List<Devices> deviceList;
     ProgressBar progressBar;
@@ -72,7 +73,6 @@ public class ConnectedDevicesParser extends AppCompatActivity {
     }
 
     public void parseIt() {
-        String siteUrl = "http://192.168.0.1/dhcptbl.htm";
         (new ParseURL() ).execute(new String[]{siteUrl});
     }
 
@@ -92,20 +92,20 @@ public class ConnectedDevicesParser extends AppCompatActivity {
                 Log.d("JSwa", "Connected to ["+strings[0]+"]");
 
                 Element body = doc.select("table#body_header").get(0);
-                Elements tables = body.select("table.formlisting"); //table array size 2
+                Elements tables = body.select("table.formlisting");
                 for(Element temp : tables) {
-                    Elements tr = temp.select("tr"); //tr array size 2
+                    Elements tr = temp.select("tr");
                     for (Element temp2 : tr) {
-                        Elements td = temp2.select("td"); //td array size 3
-                        String name = td.get(0).text(); //is getting the right values!
+                        Elements td = temp2.select("td");
+                        String name = td.get(0).text();
                         if(!name.equals("Name")) {
-                            String Ip = td.get(1).text(); //is getting the right values!
-                            String MAC = td.get(2).text(); //is getting the right values!
+                            String Ip = td.get(1).text();
+                            String MAC = td.get(2).text();
 
                             if (lan == 1) img = R.drawable.laptop_icon_black_bubble;
                             else img = R.drawable.mobile_icon_black_bubble;
 
-                            Devices device = new Devices(name,"", Ip, MAC, lan,img);
+                            Devices device = new Devices(name,"", Ip, MAC, lan, img);
                             String string = dbHandler.getNickNameHandler(device);
                             if(string != null && !string.equals(device.getDeviceName())) device.setNickName(string);
                             else {
