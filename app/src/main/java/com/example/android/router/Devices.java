@@ -13,18 +13,29 @@ import java.io.Serializable;
 
 public class Devices implements Serializable { //implement Parcel if you want to use it.
 
-    private String deviceName, iPAdd, mACAdd,nickName;
-    private int lan = 0;
+    private String deviceName, iPAdd, mACAdd, nickName;
+    private int lan, upSpeed, downSpeed;
 
     private int img;
 
-    public Devices(String deviceNAme,String nickName, String iPAdd, String mACAdd, int lan, int img) {
+    public Devices(String nickName, String iPAdd, String mACAdd, int lan, int img, int upSpeed, int downSpeed) {
+        this.iPAdd = iPAdd;
+        this.mACAdd = mACAdd;
+        this.nickName = nickName;
+        this.lan = lan;
+        this.upSpeed = upSpeed;
+        this.downSpeed = downSpeed;
+        this.img = img;
+    }
+
+    public Devices(String deviceNAme, String nickName, String iPAdd, String mACAdd, int lan, int img) {
         this.mACAdd = mACAdd;
         this.deviceName = deviceNAme;
         this.nickName = nickName;
         this.iPAdd = iPAdd;
         this.lan = lan;
         this.img = img;
+        this.upSpeed = this.downSpeed = -1; //-1 implies unlimited
     }
 
     public void setNickName(String nickName) {
@@ -72,9 +83,25 @@ public class Devices implements Serializable { //implement Parcel if you want to
     }
 
     public void setImg(int img) {
-
         this.img = img;
     }
+
+    public int getUpSpeed() {
+        return upSpeed;
+    }
+
+    public void setUpSpeed(int upSpeed) {
+        this.upSpeed = upSpeed;
+    }
+
+    public int getDownSpeed() {
+        return downSpeed;
+    }
+
+    public void setDownSpeed(int downSpeed) {
+        this.downSpeed = downSpeed;
+    }
+
 
     /**
      * Parcel Code
