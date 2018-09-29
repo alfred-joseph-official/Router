@@ -157,7 +157,7 @@ public class ConnectedDevicesParser extends AppCompatActivity {
                 Log.d("JSwa", "Connected to ["+strings[0]+"]");
 
                 Element table = doc.select("table#qosTable").get(0);
-                Elements tr = table.select("tr"); //table array size 2
+                Elements tr = table.select("tr");
                 int skip2 =0;
                 for(Element temp : tr) {
                     if(skip2 > 1) {
