@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,7 +66,7 @@ public class ConnectedDevicesParserAdapter extends RecyclerView.Adapter<Connecte
 
         ImageView imageView;
         TextView deviceNameTV, ipAddTV, macAddTV;
-        RelativeLayout cardRelativeLayout;
+        LinearLayout cardRelativeLayout;
 
         public ConnectedDevicesParserHolder(View itemView) {
             super(itemView);
