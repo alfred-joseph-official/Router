@@ -13,18 +13,31 @@ import java.io.Serializable;
 
 public class Devices implements Serializable { //implement Parcel if you want to use it.
 
-    private String deviceName, iPAdd, mACAdd,nickName;
-    private int lan = 0;
+    private String deviceName, iPAdd, mACAdd, nickName, upTUString, downTUString;
+    private int lan, upSpeed, downSpeed;
 
     private int img;
 
-    public Devices(String deviceNAme,String nickName, String iPAdd, String mACAdd, int lan, int img) {
+    public Devices(String nickName, String iPAdd, String mACAdd, int lan, int img, int upSpeed, int downSpeed) {
+        this.iPAdd = iPAdd;
+        this.mACAdd = mACAdd;
+        this.nickName = nickName;
+        this.lan = lan;
+        this.upSpeed = upSpeed;
+        this.downSpeed = downSpeed;
+        this.img = img;
+    }
+
+    public Devices(String deviceNAme, String nickName, String iPAdd, String mACAdd, int lan, int img) {
         this.mACAdd = mACAdd;
         this.deviceName = deviceNAme;
         this.nickName = nickName;
         this.iPAdd = iPAdd;
         this.lan = lan;
         this.img = img;
+        this.upSpeed = this.downSpeed = -1; //-1 implies unlimited
+        this.upTUString = "Kb/s";
+        this.downTUString = "Kb/s";
     }
 
     public void setNickName(String nickName) {
@@ -72,9 +85,55 @@ public class Devices implements Serializable { //implement Parcel if you want to
     }
 
     public void setImg(int img) {
-
         this.img = img;
     }
+
+    public int getUpSpeed() {
+        return upSpeed;
+    }
+
+    public void setUpSpeed(int upSpeed) {
+        if(String.valueOf(upSpeed).length() == 4) {
+            this.upSpeed = upSpeed/1000;
+            setUpTUString("Mb/s");
+        }else {
+            this.upSpeed = upSpeed;
+            setUpTUString("Kb/s");
+        }
+    }
+
+    public int getDownSpeed() {
+        return downSpeed;
+    }
+
+    public void setDownSpeed(int downSpeed) {
+        if(String.valueOf(downSpeed).length() == 4) {
+            this.downSpeed = downSpeed/1000;
+            setDownTUString("Mb/s");
+        }else {
+            this.downSpeed = upSpeed;
+            setDownTUString("Kb/s");
+        }
+    }
+
+    public String getUpTUString() {
+        return upTUString;
+    }
+
+    public void setUpTUString(String upTUString) {
+        this.upTUString = upTUString;
+    }
+
+    public String getDownTUString() {
+
+        return downTUString;
+    }
+
+    public void setDownTUString(String downTUString) {
+        this.downTUString = downTUString;
+    }
+
+
 
     /**
      * Parcel Code

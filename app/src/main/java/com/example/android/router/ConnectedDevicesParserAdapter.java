@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +42,18 @@ public class ConnectedDevicesParserAdapter extends RecyclerView.Adapter<Connecte
         holder.macAddTV.setText(device.getmACAdd());
         holder.imageView.setImageDrawable(cDPCtx.getResources().getDrawable(device.getImg()));
 
+        if(device.getUpSpeed() == -1 || device.getDownSpeed() == -1) {
+            holder.speedIndicatorLL.setVisibility(View.GONE);
+            holder.unLimitedSpeedIV.setVisibility(View.VISIBLE);
+        } else {
+            holder.unLimitedSpeedIV.setVisibility(View.GONE);
+            holder.speedIndicatorLL.setVisibility(View.VISIBLE);
+            holder.upSpeedTV.setText(String.valueOf(device.getUpSpeed()));
+            holder.downSpeedTV.setText(String.valueOf(device.getDownSpeed()));
+            holder.upTUTV.setText(device.getUpTUString());
+            holder.downTUTV.setText(device.getDownTUString());
+        }
+
 //        holder.imageView.setImageDrawable(cDPCtx.getResources().getDrawable(R.mipmap.ic_launcher_round));
 
         holder.cardRelativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -63,18 +76,26 @@ public class ConnectedDevicesParserAdapter extends RecyclerView.Adapter<Connecte
 
     class ConnectedDevicesParserHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageView;
-        TextView deviceNameTV, ipAddTV, macAddTV;
-        RelativeLayout cardRelativeLayout;
+        ImageView imageView,unLimitedSpeedIV;
+        TextView deviceNameTV, ipAddTV, macAddTV, upSpeedTV, downSpeedTV, upTUTV, downTUTV;
+        LinearLayout cardRelativeLayout, speedIndicatorLL;
 
         public ConnectedDevicesParserHolder(View itemView) {
             super(itemView);
 
             cardRelativeLayout = itemView.findViewById(R.id.card_relative_layout);
+
             imageView = itemView.findViewById(R.id.card_image_view);
             deviceNameTV = itemView.findViewById(R.id.card_text_view_name);
             ipAddTV = itemView.findViewById(R.id.card_text_view_ip);
             macAddTV = itemView.findViewById(R.id.card_text_view_mac);
+
+            speedIndicatorLL = itemView.findViewById(R.id.card_ll_speed_indicator);
+            unLimitedSpeedIV = itemView.findViewById(R.id.card_when_unlimited_speed);
+            upSpeedTV = itemView.findViewById(R.id.card_ll_rl_ll_up_speed_text_view);
+            downSpeedTV = itemView.findViewById(R.id.card_ll_rl_ll_down_speed_text_view);
+            upTUTV = itemView.findViewById(R.id.card_ll_rl_ll_up_speed_transfer_units);
+            downTUTV = itemView.findViewById(R.id.card_ll_rl_ll_down_speed_transfer_units);
         }
     }
 }

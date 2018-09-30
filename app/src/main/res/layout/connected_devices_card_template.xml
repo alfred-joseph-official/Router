@@ -10,12 +10,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/card_relative_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:background="@drawable/card_view_rounded_drawable">
+            android:background="@drawable/card_view_rounded_drawable"
+            android:orientation="horizontal"
+            android:weightSum="100">
 
             <ImageView
                 android:id="@+id/card_image_view"
@@ -28,16 +30,14 @@
             <LinearLayout
                 android:id="@+id/card_ll_ll_mac"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/card_image_view"
-                android:layout_toEndOf="@id/card_image_view"
+                android:layout_height="50dp"
                 android:orientation="vertical"
                 android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp">
+                android:gravity="center_vertical">
 
                 <LinearLayout
                     android:id="@+id/card_ll_name_and_ip"
-                    android:layout_width="232dp"
+                    android:layout_width="182dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -52,7 +52,8 @@
                         android:fontFamily="@font/skmod"
                         tools:ignore="Deprecated,TextViewEdits"
                         android:textStyle="bold"
-                        android:singleLine="true"/>
+                        android:singleLine="true"
+                        android:textSize="13sp"/>
 
                     <TextView
 
@@ -64,7 +65,8 @@
                         android:textColor="@color/colorPrimaryDark"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                         android:fontFamily="@font/skmod"
-                        android:singleLine="true"/>
+                        android:singleLine="true"
+                        android:textSize="13sp"/>
 
                 </LinearLayout>
 
@@ -86,7 +88,7 @@
                         android:textAlignment="center"
                         android:textAllCaps="true"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:textSize="24sp"
+                        android:textSize="18.84sp"
                         android:fontFamily="sans-serif"
                         android:textStyle="bold"
                         android:singleLine="true" />
@@ -95,8 +97,123 @@
 
             </LinearLayout>
 
+            <!--<ImageView-->
+                <!--android:id="@+id/card_image_view1"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:padding="4dp"-->
+                <!--tools:ignore="ContentDescription"-->
+                <!--android:src="@drawable/mobile_icon_black_bubble"/>-->
 
-        </RelativeLayout>
+            <ImageView
+                android:id="@+id/card_when_unlimited_speed"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_infinity_with_arrows_horizontal"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:layout_marginLeft="3dp"/>
+
+            <LinearLayout
+                android:id="@+id/card_ll_speed_indicator"
+                android:layout_width="53dp"
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginLeft="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp">
+
+                    <ImageView
+                        android:id="@+id/download_arrow_image"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_download"
+                        android:layout_marginTop="2dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_toRightOf="@id/download_arrow_image">
+
+                        <TextView
+                            android:id="@+id/card_ll_rl_ll_down_speed_text_view"
+                            android:layout_width="20dp"
+                            android:layout_height="15dp"
+                            android:text="512"
+                            android:textColor="#000"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:textAlignment="center"
+                            android:singleLine="true"/>
+
+                        <TextView
+                            android:id="@+id/card_ll_rl_ll_down_speed_transfer_units"
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:text="Mb/s"
+                            android:textColor="#000"
+                            android:textSize="6sp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:singleLine="true"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/upload_arrow_image"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_upload"
+                        android:layout_marginTop=".5dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_toRightOf="@id/upload_arrow_image">
+
+                        <TextView
+                            android:id="@+id/card_ll_rl_ll_up_speed_text_view"
+                            android:layout_width="20dp"
+                            android:layout_height="15dp"
+                            android:text="512"
+                            android:textColor="#000"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp" />
+
+                        <TextView
+                            android:id="@+id/card_ll_rl_ll_up_speed_transfer_units"
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kb/s"
+                            android:textColor="#000"
+                            android:textSize="6sp"
+                            android:fontFamily="sans-serif-condensed"/>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
     </android.support.v7.widget.CardView>
 
