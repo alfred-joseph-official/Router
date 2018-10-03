@@ -127,6 +127,25 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
+    public int getImageHandler(String macAdd) {
+        int result;
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_MAC_ADD + " = " + "'" +
+                macAdd + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query,null);
+
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            result = cursor.getInt(5);
+        } else {
+            result = -1;
+        }
+
+        cursor.close();
+        db.close();
+        return result;
+    }
+
     public void updateHandler(Devices device) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues args = new ContentValues();

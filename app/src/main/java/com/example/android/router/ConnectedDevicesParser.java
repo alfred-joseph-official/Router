@@ -120,12 +120,14 @@ public class ConnectedDevicesParser extends AppCompatActivity {
                             String Ip = td.get(1).text();
                             String MAC = td.get(2).text();
 
-                            if (lan == 1) img = R.drawable.laptop_icon_black_bubble;
-                            else img = R.drawable.mobile_icon_black_bubble;
+                            img = dbHandler.getImageHandler(MAC);
+                            if(img == -1) if (lan == 1) img = R.drawable.laptop_icon_black_bubble;
+                            else img = R.drawable.mobile_icon_black_bubble; //if there's no info just set it as mobile
 
                             Devices device = new Devices(name,"", Ip, MAC, lan, img);
                             String string = dbHandler.getNickNameHandler(device);
                             List<Integer> speeds = dbHandler.getUploadBandwidthAllottedHandler(Ip);
+
                             if (speeds != null) {
                                 device.setUpSpeed(speeds.get(0));
                                 device.setDownSpeed(speeds.get(1));
