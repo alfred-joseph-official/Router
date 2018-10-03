@@ -7,6 +7,15 @@
     android:orientation="vertical"
     android:weightSum="100">
 
+    <Spinner
+        android:id="@+id/edit_device_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:background="@null"
+        />
+
     <LinearLayout
         android:id="@+id/edit_device_row1"
         android:layout_width="match_parent"
@@ -117,6 +126,7 @@
             android:editable="false"/>
 
     </LinearLayout>
+
 
     <Button
         android:id="@+id/edit_device_save_btn"
