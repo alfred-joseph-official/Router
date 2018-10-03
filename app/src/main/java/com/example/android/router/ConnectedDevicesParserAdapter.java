@@ -2,6 +2,7 @@ package com.example.android.router;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,18 +13,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectedDevicesParserAdapter extends RecyclerView.Adapter<ConnectedDevicesParserAdapter.ConnectedDevicesParserHolder>{
     private Context cDPCtx;
-    private List<Devices> devicesList;
+    private List<Devices> devicesList = new ArrayList<>();
 
     public ConnectedDevicesParserAdapter(Context cDPCtx) {
         this.cDPCtx = cDPCtx;
     }
 
     public void setDevicesList(List<Devices> devicesList) {
-        this.devicesList = devicesList;
+        this.devicesList.clear();
+        this.devicesList.addAll(devicesList);
     }
 
     @Override
@@ -34,7 +37,7 @@ public class ConnectedDevicesParserAdapter extends RecyclerView.Adapter<Connecte
     }
 
     @Override
-    public void onBindViewHolder(final ConnectedDevicesParserHolder holder, final int position) {
+    public void onBindViewHolder(final ConnectedDevicesParserHolder holder, int position) {
         final Devices device = devicesList.get(position);
 
         holder.deviceNameTV.setText(device.getNickName());
@@ -62,7 +65,7 @@ public class ConnectedDevicesParserAdapter extends RecyclerView.Adapter<Connecte
 
                 //Toast.makeText(cDPCtx,"You Clicked " + device.getNickName(),Toast.LENGTH_LONG).show(); //works!
                 Intent intent = new Intent(cDPCtx,EditDevice.class);
-                intent.putExtra("position",position);
+                intent.putExtra("position",holder.getAdapterPosition());
                 intent.putExtra("clicked_device",device);
                 cDPCtx.startActivity(intent);
             }
@@ -72,6 +75,14 @@ public class ConnectedDevicesParserAdapter extends RecyclerView.Adapter<Connecte
     @Override
     public int getItemCount() {
         return devicesList.size();
+    }
+
+    public void refresh(List<Devices> newList) {
+        DevicesDiffCallback devicesDiffCallback = new DevicesDiffCallback(newList,devicesList);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(devicesDiffCallback);
+        devicesList.clear();
+        devicesList.addAll(newList);
+        diffResult.dispatchUpdatesTo(this);
     }
 
     class ConnectedDevicesParserHolder extends RecyclerView.ViewHolder {

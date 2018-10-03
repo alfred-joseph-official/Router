@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import org.jsoup.Jsoup;
@@ -16,6 +17,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ConnectedDevicesParser extends AppCompatActivity {
@@ -28,6 +31,8 @@ public class ConnectedDevicesParser extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ConnectedDevicesParserAdapter adapter;
     private MyDBHandler dbHandler;
+    private Button refreshBtn;
+    private boolean refreshFlag;
 //    TextView dbView;
 //    Button loadBtn;
 
@@ -56,6 +61,17 @@ public class ConnectedDevicesParser extends AppCompatActivity {
 
         dbHandler = new MyDBHandler(this,null,null,1);
 
+        refreshBtn = findViewById(R.id.ACDP_refresh_btn);
+        refreshFlag = false;
+
+        refreshBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                refreshFlag = true;
+                beginParsing();
+            }
+        });
+
 //        dbView = findViewById(R.id.dbView);
 //
 //        loadBtn = findViewById(R.id.load);
@@ -70,6 +86,7 @@ public class ConnectedDevicesParser extends AppCompatActivity {
     }
 
     private void beginParsing() {
+        refreshBtn.setClickable(false);
         new activeClientTableParse().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR,activeClientTableURL);
         new trafficControlParse().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR,trafficControlURL);
 
@@ -81,6 +98,7 @@ public class ConnectedDevicesParser extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             Log.i("AsyncTask ", "activeClientTableParse Started");
+            deviceList.clear();
             progressBar.setVisibility(View.VISIBLE);
         }
 
@@ -125,6 +143,13 @@ public class ConnectedDevicesParser extends AppCompatActivity {
                         }
                     }
                 }
+
+                Collections.sort(deviceList, new Comparator<Devices>() {
+                    @Override
+                    public int compare(Devices d1, Devices d2) {
+                        return d1.getiPAdd().compareTo(d2.getiPAdd()); //sorting by ip in ascending order
+                    }
+                });
             }
             catch(Throwable t) {
                 t.printStackTrace();
@@ -207,9 +232,17 @@ public class ConnectedDevicesParser extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             Log.i("AsyncTask ", "TrafficControlParse Complete");
-            adapter.setDevicesList(deviceList);
-            recyclerView.setAdapter(adapter);
+
+            if(!refreshFlag) {
+                adapter.setDevicesList(deviceList);
+                recyclerView.setAdapter(adapter);
+            } else {
+                adapter.refresh(deviceList);
+                refreshFlag = false;
+            }
+            refreshBtn.setClickable(true);
             progressBar.setVisibility(View.GONE);
+
         }
     }
 }
