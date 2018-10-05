@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Devices implements Serializable { //implement Parcel if you want to use it.
 
     private String deviceName, iPAdd, mACAdd, nickName, upTUString, downTUString;
-    private int lan, upSpeed, downSpeed;
+    private int lan, upSpeed, downSpeed, upSpeedKbps, downSpeedKbps;
 
     private int img;
 
@@ -93,7 +93,9 @@ public class Devices implements Serializable { //implement Parcel if you want to
     }
 
     public void setUpSpeed(int upSpeed) {
-        if(String.valueOf(upSpeed).length() == 4) {
+        this.upSpeedKbps = upSpeed;
+        if(String.valueOf(upSpeed).length() > 3) {
+
             this.upSpeed = upSpeed/1000;
             setUpTUString("Mb/s");
         }else {
@@ -107,11 +109,13 @@ public class Devices implements Serializable { //implement Parcel if you want to
     }
 
     public void setDownSpeed(int downSpeed) {
-        if(String.valueOf(downSpeed).length() == 4) {
+        this.downSpeedKbps = downSpeed;
+        if(String.valueOf(downSpeed).length() > 3) {
+
             this.downSpeed = downSpeed/1000;
             setDownTUString("Mb/s");
         }else {
-            this.downSpeed = upSpeed;
+            this.downSpeed = downSpeed;
             setDownTUString("Kb/s");
         }
     }
@@ -133,7 +137,21 @@ public class Devices implements Serializable { //implement Parcel if you want to
         this.downTUString = downTUString;
     }
 
+    public int getUpSpeedKbps() {
+        return upSpeedKbps;
+    }
 
+    public void setUpSpeedKbps(int upSpeedKbps) {
+        this.upSpeedKbps = upSpeedKbps;
+    }
+
+    public int getDownSpeedKbps() {
+        return downSpeedKbps;
+    }
+
+    public void setDownSpeedKbps(int downSpeedKbps) {
+        this.downSpeedKbps = downSpeedKbps;
+    }
 
     /**
      * Parcel Code

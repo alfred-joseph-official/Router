@@ -156,8 +156,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         args.put(COLUMN_IP_ADD,device.getiPAdd());
         args.put(COLUMN_LAN,device.getLan());
         args.put(COLUMN_IMAGE,device.getImg());
-        args.put(COLUMN_UP_SPEED,device.getUpSpeed());
-        args.put(COLUMN_DOWN_SPEED,device.getDownSpeed());
+        args.put(COLUMN_UP_SPEED,device.getUpSpeedKbps());
+        args.put(COLUMN_DOWN_SPEED,device.getDownSpeedKbps());
 
         db.update(TABLE_NAME,args,COLUMN_MAC_ADD + " = '" + device.getmACAdd()+"'",null);
         db.close();

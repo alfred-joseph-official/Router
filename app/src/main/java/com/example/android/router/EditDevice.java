@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,7 +47,9 @@ public class EditDevice extends AppCompatActivity {
     }
 
     private void loadData() {
-        final EditText nickName,ipAdd,macAdd,deviceName;
+        final EditText nickName,ipAdd,macAdd, download, upload, connectionType;
+        String downloadString, uploadString, connectionTypeString;
+        TextView deviceName;
         Button saveBtn;
         final Spinner spinner;
         final List<String> deviceTypes = new ArrayList<>();
@@ -59,18 +61,48 @@ public class EditDevice extends AppCompatActivity {
         images.add(R.drawable.icon_printer_bubble_black);
         images.add(R.drawable.icon_router_bubble_black);
 
-        nickName = findViewById(R.id.row1_edit_text);
-        ipAdd = findViewById(R.id.row2_edit_text);
-        macAdd = findViewById(R.id.row3_edit_text);
-        deviceName = findViewById(R.id.row4_edit_text);
-        saveBtn = findViewById(R.id.edit_device_save_btn);
-        spinner = findViewById(R.id.edit_device_spinner);
+        nickName = findViewById(R.id.nick_name_edit_text);
+        ipAdd = findViewById(R.id.ip_edit_text);
+        macAdd = findViewById(R.id.mac_edit_text);
+        deviceName = findViewById(R.id.domain_value);
+        download = findViewById(R.id.download_edit_text);
+        upload = findViewById(R.id.upload_edit_text);
+        connectionType = findViewById(R.id.connection_type_edit_text);
+
+        saveBtn = findViewById(R.id.ED_save_btn);
+        spinner = findViewById(R.id.ED_spinner);
+
         dbHandler = new MyDBHandler(this,null,null,1);
 
         nickName.setText(device.getNickName());
         ipAdd.setText(device.getiPAdd());
-        macAdd.setText(device.getmACAdd());
+        macAdd.setText(device.getmACAdd().toUpperCase());
         deviceName.setText(device.getDeviceName());
+
+        if (device.getDownSpeed() == -1 ) {
+            downloadString = "Unlimited";
+            download.setText(downloadString);
+        }
+        else  {
+            downloadString = device.getDownSpeed() + " " + device.getDownTUString();
+            download.setText(downloadString);
+        }
+
+        if (device.getUpSpeed() == -1) {
+            uploadString = "Unlimited";
+            upload.setText(uploadString);
+        } else {
+            uploadString = device.getUpSpeed() + " " + device.getUpTUString();
+            upload.setText(uploadString);
+        }
+
+        if (device.getLan() == 1) {
+            connectionTypeString = "LAN";
+            connectionType.setText(connectionTypeString);
+        } else {
+            connectionTypeString = "WAN";
+            connectionType.setText(connectionTypeString);
+        }
 
         EditDeviceSpinnerAdapter editDeviceSpinnerAdapter = new
                 EditDeviceSpinnerAdapter(getApplicationContext(),images,deviceTypes);
