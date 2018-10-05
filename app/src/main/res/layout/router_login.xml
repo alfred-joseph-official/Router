@@ -59,7 +59,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="textEmailSubject"
+                    android:inputType="textVisiblePassword"
                     android:textColor="#fff"
                     android:hint="@string/router_login_usn_hint"
                     android:textColorHint="#e3e3e3"

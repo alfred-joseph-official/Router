@@ -82,7 +82,9 @@
                     android:layout_marginRight="16dp"
                     android:singleLine="true"
                     android:fontFamily="@font/skmod"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="@null"
+                    android:inputType="textVisiblePassword"/>
 
             </LinearLayout>
 
@@ -126,7 +128,8 @@
                     android:layout_marginRight="16dp"
                     android:singleLine="true"
                     android:fontFamily="@font/skmod"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="@null"/>
 
             </LinearLayout>
 
@@ -170,7 +173,8 @@
                     android:layout_marginRight="16dp"
                     android:singleLine="true"
                     android:fontFamily="sans-serif-medium"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:background="@null"/>
 
             </LinearLayout>
 
@@ -260,7 +264,8 @@
                     android:singleLine="true"
                     android:fontFamily="@font/skmod"
                     android:textStyle="bold"
-                    android:editable="false"/>
+                    android:editable="false"
+                    android:background="@null"/>
 
             </LinearLayout>
 
@@ -306,7 +311,8 @@
                     android:singleLine="true"
                     android:fontFamily="@font/skmod"
                     android:textStyle="bold"
-                    android:editable="false"/>
+                    android:editable="false"
+                    android:background="@null"/>
 
             </LinearLayout>
 
@@ -352,7 +358,8 @@
                     android:singleLine="true"
                     android:fontFamily="@font/skmod"
                     android:textStyle="bold"
-                    android:editable="false"/>
+                    android:editable="false"
+                    android:background="@null"/>
 
             </LinearLayout>
 
