@@ -109,7 +109,7 @@
                 android:id="@+id/card_when_unlimited_speed"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_infinity_with_arrows_horizontal"
+                android:src="@drawable/icon_infinity_black"
                 android:visibility="gone"
                 android:layout_gravity="center"
                 android:layout_marginLeft="3dp"/>
@@ -131,7 +131,7 @@
                         android:id="@+id/download_arrow_image"
                         android:layout_width="12dp"
                         android:layout_height="12dp"
-                        android:src="@drawable/ic_download"
+                        android:src="@drawable/icon_down_arrow_black"
                         android:layout_marginTop="2dp"/>
 
                     <LinearLayout
@@ -175,7 +175,7 @@
                         android:id="@+id/upload_arrow_image"
                         android:layout_width="12dp"
                         android:layout_height="12dp"
-                        android:src="@drawable/ic_upload"
+                        android:src="@drawable/icon_up_arrow_black"
                         android:layout_marginTop=".5dp"/>
 
                     <LinearLayout

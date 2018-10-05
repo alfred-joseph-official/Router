@@ -121,8 +121,8 @@ public class ConnectedDevicesParser extends AppCompatActivity {
                             String MAC = td.get(2).text();
 
                             img = dbHandler.getImageHandler(MAC);
-                            if(img == -1) if (lan == 1) img = R.drawable.laptop_icon_black_bubble;
-                            else img = R.drawable.mobile_icon_black_bubble; //if there's no info just set it as mobile
+                            if(img == -1) if (lan == 1) img = R.drawable.icon_desktop_bubble_black;
+                            else img = R.drawable.icon_mobile_bubble_black; //if there's no info just set it as mobile
 
                             Devices device = new Devices(name,"", Ip, MAC, lan, img);
                             String string = dbHandler.getNickNameHandler(device);

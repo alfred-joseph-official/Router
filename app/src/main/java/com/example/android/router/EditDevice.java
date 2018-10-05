@@ -1,12 +1,18 @@
 package com.example.android.router;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,11 +53,11 @@ public class EditDevice extends AppCompatActivity {
         final List<String> deviceTypes = new ArrayList<>();
         Collections.addAll(deviceTypes, "Laptop","Mobile","Desktop","Printer","Router");
         final List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.laptop_icon_black_bubble);
-        images.add(R.drawable.mobile_icon_black_bubble);
-        images.add(R.drawable.laptop_icon_black_bubble);
-        images.add(R.drawable.laptop_icon_black_bubble);
-        images.add(R.drawable.mobile_icon_black_bubble);
+        images.add(R.drawable.icon_laptop_bubble_black);
+        images.add(R.drawable.icon_mobile_bubble_black);
+        images.add(R.drawable.icon_desktop_bubble_black);
+        images.add(R.drawable.icon_printer_bubble_black);
+        images.add(R.drawable.icon_router_bubble_black);
 
         nickName = findViewById(R.id.row1_edit_text);
         ipAdd = findViewById(R.id.row2_edit_text);
@@ -66,7 +72,9 @@ public class EditDevice extends AppCompatActivity {
         macAdd.setText(device.getmACAdd());
         deviceName.setText(device.getDeviceName());
 
-        EditDeviceSpinnerAdapter editDeviceSpinnerAdapter = new EditDeviceSpinnerAdapter(getApplicationContext(),images,deviceTypes);
+        EditDeviceSpinnerAdapter editDeviceSpinnerAdapter = new
+                EditDeviceSpinnerAdapter(getApplicationContext(),images,deviceTypes);
+
         spinner.setAdapter(editDeviceSpinnerAdapter);
         final int position = images.indexOf(device.getImg());
         spinner.post(new Runnable() { // setting the saved image from the database for the device
@@ -96,5 +104,44 @@ public class EditDevice extends AppCompatActivity {
             }
         });
 
+    }
+
+    class EditDeviceSpinnerAdapter extends BaseAdapter {
+        private Context eDSACTX;
+        private List<Integer> images;
+        private List<String> deviceTypes;
+        private LayoutInflater inflater;
+
+        EditDeviceSpinnerAdapter(Context eDSACTX, List<Integer> images, List<String> deviceTypes) {
+            this.eDSACTX = eDSACTX;
+            this.images = images;
+            this.deviceTypes = deviceTypes;
+            inflater = (LayoutInflater.from(eDSACTX));
+        }
+
+        @Override
+        public int getCount() {
+            return images.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            view = inflater.inflate(R.layout.spinner_items,null);
+            ImageView icon = view.findViewById(R.id.spinner1_imageview);
+//        TextView deviceType = view.findViewById(R.id.spinner1_textview);
+            icon.setImageResource(images.get(i));
+//        deviceType.setText(deviceTypes.get(i));
+            return view;
+        }
     }
 }
