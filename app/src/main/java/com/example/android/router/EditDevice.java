@@ -3,6 +3,7 @@ package com.example.android.router;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -76,33 +78,29 @@ public class EditDevice extends AppCompatActivity {
 
         nickName.setText(device.getNickName());
         ipAdd.setText(device.getiPAdd());
+        ipAdd.setInputType(InputType.TYPE_NULL); //android:editable="false" is deprecated so use this. But inputType = "none" doesnt work on xml.
         macAdd.setText(device.getmACAdd().toUpperCase());
+        macAdd.setInputType(InputType.TYPE_NULL);
         deviceName.setText(device.getDeviceName());
+        deviceName.setInputType(InputType.TYPE_NULL);
 
-        if (device.getDownSpeed() == -1 ) {
-            downloadString = "Unlimited";
-            download.setText(downloadString);
-        }
-        else  {
-            downloadString = device.getDownSpeed() + " " + device.getDownTUString();
-            download.setText(downloadString);
-        }
+        if (device.getDownSpeed() == -1 ) downloadString = "Unlimited";
+        else downloadString = device.getDownSpeed() + " " + device.getDownTUString();
 
-        if (device.getUpSpeed() == -1) {
-            uploadString = "Unlimited";
-            upload.setText(uploadString);
-        } else {
-            uploadString = device.getUpSpeed() + " " + device.getUpTUString();
-            upload.setText(uploadString);
-        }
+        download.setText(downloadString);
+        download.setInputType(InputType.TYPE_NULL);
 
-        if (device.getLan() == 1) {
-            connectionTypeString = "LAN";
-            connectionType.setText(connectionTypeString);
-        } else {
-            connectionTypeString = "WAN";
-            connectionType.setText(connectionTypeString);
-        }
+        if (device.getUpSpeed() == -1) uploadString = "Unlimited";
+        else uploadString = device.getUpSpeed() + " " + device.getUpTUString();
+
+        upload.setText(uploadString);
+        upload.setInputType(InputType.TYPE_NULL);
+
+        if (device.getLan() == 1) connectionTypeString = "LAN";
+        else connectionTypeString = "WAN";
+
+        connectionType.setText(connectionTypeString);
+        connectionType.setInputType(InputType.TYPE_NULL);
 
         EditDeviceSpinnerAdapter editDeviceSpinnerAdapter = new
                 EditDeviceSpinnerAdapter(getApplicationContext(),images,deviceTypes);
@@ -133,6 +131,8 @@ public class EditDevice extends AppCompatActivity {
             public void onClick(View view) {
                 device.setNickName(String.valueOf(nickName.getText()));
                 dbHandler.updateHandler(device);
+                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 

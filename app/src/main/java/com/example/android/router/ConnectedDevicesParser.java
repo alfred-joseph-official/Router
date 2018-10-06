@@ -89,7 +89,6 @@ public class ConnectedDevicesParser extends AppCompatActivity {
         refreshBtn.setClickable(false);
         new activeClientTableParse().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR,activeClientTableURL);
         new trafficControlParse().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR,trafficControlURL);
-
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -246,5 +245,12 @@ public class ConnectedDevicesParser extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
 
         }
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        refreshFlag = false;
+        beginParsing();
     }
 }

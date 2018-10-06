@@ -4,6 +4,20 @@
     <!--Router_login.xml strings-->
     <string name="router_login_usn_hint">Username</string>
     <string name="router_login_pwd_hint">Password</string>
+    <string name="router_login_save_credentials_checkbox_string">Remember me</string>
     <string name="router_login_btn_login_text">Log In</string>
+
+    <!--Connected_devices.xml strings-->
+    <string name="connected_devices_refresh_button_string">Refresh</string>
+
+    <!--Edit_device.xml strings-->
+    <string name="ED_name_label">Name</string>
+    <string name="ED_ip_label">IP</string>
+    <string name="ED_mac_label">MAC</string>
+    <string name="ED_domain_label">Domain</string>
+    <string name="ED_download_label">Download</string>
+    <string name="ED_upload_label">Upload</string>
+    <string name="ED_connection_type_label">Type</string>
+    <string name="ED_save_btn_string">Save</string>
 
 </resources>

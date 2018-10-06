@@ -4,66 +4,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditDevice"
-    android:orientation="vertical"
     android:background="@color/colorPrimaryDark">
 
     <Spinner
         android:id="@+id/ED_spinner"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
+
         android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+
+        android:background="@null"
+
         android:popupBackground="@drawable/rounded_black_rectangle" />
 
     <ScrollView
         android:id="@+id/ED_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rounded_black_rectangle"
-        android:backgroundTint="@color/colorAccent"
+
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="70dp"
+
         android:descendantFocusability="beforeDescendants"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+
+        android:background="@drawable/rounded_black_rectangle"
+        android:backgroundTint="@color/colorAccent"
+        tools:ignore="UnusedAttribute">
 
         <LinearLayout
             android:id="@+id/ED_floating_white_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical"
+
             android:elevation="4dp"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
             android:paddingLeft="5dp"
+
             android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true">
+            android:focusableInTouchMode="true"
+            tools:ignore="RtlHardcoded,RtlSymmetry">
 
             <LinearLayout
                 android:id="@+id/ED_name_ll_row"
+
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:orientation="horizontal"
+
                 android:weightSum="100"
-                android:background="@drawable/rounded_black_rectangle"
+
+                android:orientation="horizontal"
+
                 android:descendantFocusability="beforeDescendants"
-                android:focusableInTouchMode="true">
+                android:focusableInTouchMode="true"
+
+                android:background="@drawable/rounded_black_rectangle">
 
                 <TextView
                     android:id="@+id/name_label"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="40"
-                    android:text="Name"
-                    android:gravity="center_vertical"
+
                     android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+
                     android:textSize="20sp"
                     android:textColor="#e3e3e3"
                     android:fontFamily="@font/skmod"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+
+                    android:text="@string/ED_name_label"/>
 
                 <View
                     android:layout_width="0dp"
@@ -76,15 +94,19 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="59"
-                    android:textSize="15sp"
-                    android:textColor="#fff"
+
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:singleLine="true"
+
+                    android:textSize="15sp"
+                    android:textColor="#fff"
                     android:fontFamily="@font/skmod"
+                    android:singleLine="true"
                     android:textStyle="bold"
+                    android:inputType="textVisiblePassword"
+
                     android:background="@null"
-                    android:inputType="textVisiblePassword"/>
+                    tools:ignore="LabelFor" />
 
             </LinearLayout>
 
@@ -93,8 +115,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:orientation="horizontal"
                 android:weightSum="100"
+
+                android:orientation="horizontal"
+
                 android:background="@drawable/rounded_black_rectangle">
 
                 <TextView
@@ -102,13 +126,16 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="40"
-                    android:text="IP"
-                    android:gravity="center_vertical"
+
                     android:layout_marginLeft="16dp"
-                    android:singleLine="true"
+                    android:gravity="center_vertical"
+
                     android:textSize="20sp"
                     android:textColor="#e3e3e3"
-                    android:fontFamily="@font/skmod" />
+                    android:fontFamily="@font/skmod"
+                    android:singleLine="true"
+
+                    android:text="@string/ED_ip_label"/>
 
                 <View
                     android:layout_width="0dp"
@@ -121,15 +148,18 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="59"
-                    android:textSize="15sp"
-                    android:editable="false"
-                    android:textColor="#fff"
+
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:singleLine="true"
+
+                    android:textSize="15sp"
+                    android:textColor="#fff"
                     android:fontFamily="@font/skmod"
+                    android:singleLine="true"
                     android:textStyle="bold"
-                    android:background="@null"/>
+
+                    android:background="@null"
+                    tools:ignore="LabelFor,TextFields" />
 
             </LinearLayout>
 
@@ -140,6 +170,7 @@
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:weightSum="100"
+
                 android:background="@drawable/rounded_black_rectangle">
 
                 <TextView
@@ -147,13 +178,16 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="40"
-                    android:text="MAC"
-                    android:gravity="center_vertical"
+
                     android:layout_marginLeft="16dp"
-                    android:singleLine="true"
+                    android:gravity="center_vertical"
+
                     android:textSize="20sp"
                     android:textColor="#e3e3e3"
-                    android:fontFamily="@font/skmod" />
+                    android:fontFamily="@font/skmod"
+                    android:singleLine="true"
+
+                    android:text="@string/ED_mac_label"/>
 
                 <View
                     android:layout_width="0dp"
@@ -166,15 +200,18 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="59"
-                    android:textSize="13sp"
-                    android:editable="false"
-                    android:textColor="#fff"
+
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:singleLine="true"
+
+                    android:textSize="13sp"
+                    android:textColor="#fff"
                     android:fontFamily="sans-serif-medium"
+                    android:singleLine="true"
                     android:textStyle="bold"
-                    android:background="@null"/>
+
+                    android:background="@null"
+                    tools:ignore="LabelFor,TextFields" />
 
             </LinearLayout>
 
@@ -185,6 +222,7 @@
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:weightSum="100"
+
                 android:background="@drawable/rounded_black_rectangle">
 
                 <TextView
@@ -192,13 +230,16 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="40"
-                    android:text="Domain"
-                    android:gravity="center_vertical"
+
                     android:layout_marginLeft="16dp"
-                    android:singleLine="true"
+                    android:gravity="center_vertical"
+
                     android:textSize="20sp"
                     android:textColor="#e3e3e3"
-                    android:fontFamily="@font/skmod" />
+                    android:fontFamily="@font/skmod"
+                    android:singleLine="true"
+
+                    android:text="@string/ED_domain_label"/>
 
                 <View
                     android:layout_width="0dp"
@@ -211,14 +252,16 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="59"
+
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+
                     android:textSize="15sp"
                     android:textColor="#fff"
                     android:fontFamily="@font/skmod"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:singleLine="true"
-                    android:gravity="center_vertical"/>
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -229,22 +272,24 @@
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:weightSum="100"
-                android:background="@drawable/rounded_black_rectangle"
-                android:descendantFocusability="beforeDescendants"
-                android:focusableInTouchMode="true">
+
+                android:background="@drawable/rounded_black_rectangle">
 
                 <TextView
                     android:id="@+id/download_label"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="40"
-                    android:text="Download"
-                    android:gravity="center_vertical"
+
                     android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+
                     android:textSize="18sp"
                     android:textColor="#e3e3e3"
                     android:fontFamily="@font/skmod"
-                    android:singleLine="true"/>
+                    android:singleLine="true"
+
+                    android:text="@string/ED_download_label"/>
 
                 <View
                     android:layout_width="0dp"
@@ -257,15 +302,18 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="59"
-                    android:textSize="15sp"
-                    android:textColor="#fff"
+
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:singleLine="true"
+
+                    android:textSize="15sp"
+                    android:textColor="#fff"
                     android:fontFamily="@font/skmod"
+                    android:singleLine="true"
                     android:textStyle="bold"
-                    android:editable="false"
-                    android:background="@null"/>
+
+                    android:background="@null"
+                    tools:ignore="LabelFor,TextFields" />
 
             </LinearLayout>
 
@@ -276,22 +324,24 @@
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:weightSum="100"
-                android:background="@drawable/rounded_black_rectangle"
-                android:descendantFocusability="beforeDescendants"
-                android:focusableInTouchMode="true">
+
+                android:background="@drawable/rounded_black_rectangle">
 
                 <TextView
                     android:id="@+id/upload_label"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="40"
-                    android:text="Upload"
-                    android:gravity="center_vertical"
+
                     android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+
                     android:textSize="20sp"
                     android:textColor="#e3e3e3"
                     android:fontFamily="@font/skmod"
-                    android:singleLine="true"/>
+                    android:singleLine="true"
+
+                    android:text="@string/ED_upload_label"/>
 
                 <View
                     android:layout_width="0dp"
@@ -304,15 +354,18 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="59"
-                    android:textSize="15sp"
-                    android:textColor="#fff"
+
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:singleLine="true"
+
+                    android:textSize="15sp"
+                    android:textColor="#fff"
                     android:fontFamily="@font/skmod"
+                    android:singleLine="true"
                     android:textStyle="bold"
-                    android:editable="false"
-                    android:background="@null"/>
+
+                    android:background="@null"
+                    tools:ignore="LabelFor,TextFields" />
 
             </LinearLayout>
 
@@ -323,22 +376,24 @@
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:weightSum="100"
-                android:background="@drawable/rounded_black_rectangle"
-                android:descendantFocusability="beforeDescendants"
-                android:focusableInTouchMode="true">
+
+                android:background="@drawable/rounded_black_rectangle">
 
                 <TextView
-                    android:id="@+id/connection_type__label"
+                    android:id="@+id/connection_type_label"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="40"
-                    android:text="Type"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="16dp"
+
                     android:textSize="20sp"
                     android:textColor="#e3e3e3"
                     android:fontFamily="@font/skmod"
-                    android:singleLine="true"/>
+                    android:singleLine="true"
+
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+
+                    android:text="@string/ED_connection_type_label"/>
 
                 <View
                     android:layout_width="0dp"
@@ -351,15 +406,18 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="59"
-                    android:textSize="15sp"
-                    android:textColor="#fff"
+
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:singleLine="true"
+
+                    android:textSize="15sp"
+                    android:textColor="#fff"
                     android:fontFamily="@font/skmod"
+                    android:singleLine="true"
                     android:textStyle="bold"
-                    android:editable="false"
-                    android:background="@null"/>
+
+                    android:background="@null"
+                    tools:ignore="LabelFor,TextFields" />
 
             </LinearLayout>
 
@@ -367,17 +425,20 @@
 
     </ScrollView>
 
-
-
     <Button
         android:id="@+id/ED_save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+
         android:layout_margin="10dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:backgroundTint="@color/colorAccent"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+
+        android:textColor="@color/colorPrimaryDark"
+
+        android:backgroundTint="@color/colorAccent"
+
+        android:text="@string/ED_save_btn_string"
+        tools:ignore="UnusedAttribute" />
 
 </RelativeLayout>

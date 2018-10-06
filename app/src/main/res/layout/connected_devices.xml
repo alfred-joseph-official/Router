@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark"
@@ -47,7 +46,7 @@
         android:id="@+id/ACDP_refresh_btn"
         android:layout_width="238dp"
         android:layout_height="57dp"
-        android:text="Refresh"
+        android:text="@string/connected_devices_refresh_button_string"
         android:fontFamily="sans-serif-smallcaps"
         android:textAllCaps="false"
         android:layout_alignParentBottom="true"
@@ -55,7 +54,8 @@
         android:backgroundTint="#fff"
         android:textColor="#000"
         android:textSize="18sp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        tools:ignore="UnusedAttribute" />
 
     <!--just to test db. When deleting this change recycler view layoutheight to match_parent-->
     <!--<TextView-->

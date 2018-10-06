@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:scaleX="0.85"
                 android:scaleY="0.85"
-                android:text="Remember me"
+                android:text="@string/router_login_save_credentials_checkbox_string"
                 android:checked="true"
                 app:layout_constraintTop_toBottomOf="@id/router_login_pwd_ll"
                 app:layout_constraintEnd_toEndOf="@id/router_login_pwd_ll"
@@ -140,7 +140,8 @@
                 android:gravity="center"
                 android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="RtlHardcoded,UnusedAttribute" />
 
             <Button
                 android:id="@+id/router_login_btn_login"

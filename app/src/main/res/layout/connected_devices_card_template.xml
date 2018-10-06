@@ -23,7 +23,6 @@
                 android:id="@+id/card_image_view"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_centerVertical="true"
                 android:padding="4dp"
                 tools:ignore="ContentDescription" />
 
@@ -33,7 +32,8 @@
                 android:layout_height="50dp"
                 android:orientation="vertical"
                 android:layout_marginLeft="3dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                tools:ignore="RtlHardcoded">
 
                 <LinearLayout
                     android:id="@+id/card_ll_name_and_ip"
@@ -50,7 +50,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:fontFamily="@font/skmod"
-                        tools:ignore="Deprecated,TextViewEdits"
+                        tools:ignore="Deprecated,TextViewEdits,UnusedAttribute"
                         android:textStyle="bold"
                         android:singleLine="true"
                         android:textSize="13sp"/>
@@ -66,7 +66,8 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                         android:fontFamily="@font/skmod"
                         android:singleLine="true"
-                        android:textSize="13sp"/>
+                        android:textSize="13sp"
+                        tools:ignore="UnusedAttribute" />
 
                 </LinearLayout>
 
@@ -90,7 +91,8 @@
                         android:textSize="18.84sp"
                         android:fontFamily="sans-serif"
                         android:textStyle="bold"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        tools:ignore="UnusedAttribute" />
 
                 </LinearLayout>
 
@@ -112,7 +114,8 @@
                 android:src="@drawable/icon_infinity_black"
                 android:visibility="gone"
                 android:layout_gravity="center"
-                android:layout_marginLeft="3dp"/>
+                android:layout_marginLeft="3dp"
+                tools:ignore="ContentDescription,RtlHardcoded" />
 
             <LinearLayout
                 android:id="@+id/card_ll_speed_indicator"
@@ -120,7 +123,8 @@
                 android:layout_height="50dp"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_marginLeft="1dp">
+                android:layout_marginLeft="1dp"
+                tools:ignore="RtlHardcoded">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -132,7 +136,8 @@
                         android:layout_width="12dp"
                         android:layout_height="12dp"
                         android:src="@drawable/icon_down_arrow_black"
-                        android:layout_marginTop="2dp"/>
+                        android:layout_marginTop="2dp"
+                        tools:ignore="ContentDescription" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -144,7 +149,6 @@
                             android:id="@+id/card_ll_rl_ll_down_speed_text_view"
                             android:layout_width="20dp"
                             android:layout_height="15dp"
-                            android:text="512"
                             android:textColor="#000"
                             android:textSize="12sp"
                             android:textStyle="bold"
@@ -157,11 +161,11 @@
                             android:id="@+id/card_ll_rl_ll_down_speed_transfer_units"
                             android:layout_width="15dp"
                             android:layout_height="wrap_content"
-                            android:text="Mb/s"
                             android:textColor="#000"
                             android:textSize="6sp"
                             android:fontFamily="sans-serif-condensed"
-                            android:singleLine="true"/>
+                            android:singleLine="true"
+                            tools:ignore="SmallSp,UnusedAttribute" />
 
                     </LinearLayout>
 
@@ -176,7 +180,8 @@
                         android:layout_width="12dp"
                         android:layout_height="12dp"
                         android:src="@drawable/icon_up_arrow_black"
-                        android:layout_marginTop=".5dp"/>
+                        android:layout_marginTop=".5dp"
+                        tools:ignore="ContentDescription" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -188,7 +193,6 @@
                             android:id="@+id/card_ll_rl_ll_up_speed_text_view"
                             android:layout_width="20dp"
                             android:layout_height="15dp"
-                            android:text="512"
                             android:textColor="#000"
                             android:textSize="12sp"
                             android:textStyle="bold"
@@ -199,10 +203,10 @@
                             android:id="@+id/card_ll_rl_ll_up_speed_transfer_units"
                             android:layout_width="15dp"
                             android:layout_height="wrap_content"
-                            android:text="Kb/s"
                             android:textColor="#000"
                             android:textSize="6sp"
-                            android:fontFamily="sans-serif-condensed"/>
+                            android:fontFamily="sans-serif-condensed"
+                            tools:ignore="SmallSp,UnusedAttribute" />
 
                     </LinearLayout>
 
